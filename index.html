@@ -6,6 +6,7 @@
 <body>
 	<button onclick="myFacebookLogin()">Login with Facebook</button>
 	<script>
+	  var ACCESS_CODE = "?access_token=0de8302946eab5d85a2414372e3e7f95"
 	  window.fbAsyncInit = function() {
 	    FB.init({
 	      appId            : '1951063605154545',
@@ -24,12 +25,16 @@
 	   }(document, 'script', 'facebook-jssdk'));
 
 	  function myFacebookLogin() {
-	    FB.api(
-	        "/1129217047196771/events",
-	        function (response) {
-	          console.log(response);
-	        }
-	    );
+	    // FB.api(
+	    //     "/1129217047196771/events" + ACCESS_CODE,
+	    //     function (response) {
+	    //       console.log(response);
+	    //     }
+	    // );
+	    FB.api("/oauth/access_token?client_id=1951063605154545&client_secret=0de8302946eab5d85a2414372e3e7f95&grant_type=client_credentials", function(error, response) {
+	    	console.log(error);
+	    	console.log(response);
+	    });
 
 	  }
 	</script>
