@@ -24,7 +24,13 @@
 	   }(document, 'script', 'facebook-jssdk'));
 
 	  function myFacebookLogin() {
-	    FB.login(function(){}, {scope: 'publish_actions'});
+	    FB.api(
+	        "/1129217047196771/events",
+	        function (response) {
+	          console.log(response);
+	        }
+	    );
+
 	  }
 	</script>
 </body>
